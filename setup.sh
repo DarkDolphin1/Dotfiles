@@ -99,10 +99,10 @@ fi
 
 
 # 3. Build asusctl (using yay)
-echo ">>> Installing Asusctl , building from source "
-yay -S --noconfirm asusctl
-# Enable the service
-sudo systemctl enable --now asusd
+# echo ">>> Installing Asusctl , building from source "
+# yay -S --noconfirm asusctl
+# # Enable the service
+# sudo systemctl enable --now asusd
 
 PKGS=(
   "btop"
