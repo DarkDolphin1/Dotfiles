@@ -69,6 +69,7 @@ fi
         echo ">> Selected: $SELECTED_ALGO"
 
         # --- 2. Select ZRAM Size ---
+        sudo pacman -S zram-generator
         echo ""
         echo ">> Enter ZRAM size."
         echo "   Examples: 'ram' (full size), 'ram / 2' (half), '4096' (4GB fixed), 'min(ram, 4096)'"
