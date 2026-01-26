@@ -27,7 +27,7 @@ git_clone(){
 # 1. Build yay from source
 if ! command -v yay &>/dev/null; then
   echo ">>> Building yay from source..."
-  git_Clone https://aur.archlinux.org/yay.git
+  git_clone https://aur.archlinux.org/yay.git
   cd yay
   makepkg -si --noconfirm
   cd ..
@@ -95,8 +95,8 @@ echo ">> available compression algorithms:"
         compression-algorithm = $SELECTED_ALGO
         EOF"
 
-    sudo systemctl daemon-reload
-    sudo systemctl restart systemd-zram-setup@zram0.service
+#    sudo systemctl daemon-reload
+#    sudo systemctl restart systemd-zram-setup@zram0.service
     echo ">>> If ZRAM doesn't show up right now , don't worry , try a reboot :)"
     echo ">>> ZRAM Status:"
     zramctl
@@ -129,10 +129,12 @@ pacman_install "${DEVTOOLS[@]}"
 yay_install visual-studio-code-bin  
 
 KDE=("plasma" "konsole" "dolphin" "thunar" "kitty" "sddm")
-HYPR=("hyprland" "wlogout" "hyprpaper" "waybar" "wlogout")
+HYPR=("hyprland" "hyprpaper" "waybar" )
 
 echo ">>> Installing Base KDE and hyprland "
 pacman_install "${KDE[@]}"
 pacman_install "${HYPR[@]}"
 
+sudo systemctl enable sddm
+reboot
 echo ">>> Setup complete! Please restart your shell."
