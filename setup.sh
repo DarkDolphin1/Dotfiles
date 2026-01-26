@@ -128,4 +128,11 @@ echo ">>> Installling Dev tools "
 pacman_install "${DEVTOOLS[@]}"
 yay_install visual-studio-code-bin  
 
+KDE=("plasma" "konsole" "dolphin" "thunar" "kitty" "sddm")
+HYPR=("hyprland" "wlogout" "hyprpaper" "waybar" "wlogout")
+
+echo ">>> Installing Base KDE and hyprland "
+pacman_install "${KDE[@]}"
+pacman_install "${HYPR[@]}"
+
 echo ">>> Setup complete! Please restart your shell."
