@@ -102,9 +102,18 @@ echo ">> available compression algorithms:"
     zramctl
 
 
-    echo ">>> Build asusctl locally from source ? [Y/n]"
-    echo ">>> Installing Asusctl , building from source "
-    yay_install asusctl 
+    read -p ">>> Build asusctl locally from source ? [Y/n]" ans
+    case "$ans" in
+        [Yy]|"" ){ 
+            echo "Building asusctal from yay";
+            
+            yay_install asusctl 
+
+            }
+        [Nn] ) echo ">>> Skipping asusctl ";
+        * ) echo "Invalid choice";;
+    esac
+
 
 PKGS=( "btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "fzf" "ncdu" "dust" "helix" )
 
