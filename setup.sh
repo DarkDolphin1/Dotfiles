@@ -95,8 +95,6 @@ echo ">> available compression algorithms:"
         compression-algorithm = $SELECTED_ALGO
         EOF"
 
-#    sudo systemctl daemon-reload
-#    sudo systemctl restart systemd-zram-setup@zram0.service
     echo ">>> If ZRAM doesn't show up right now , don't worry , try a reboot :)"
     echo ">>> ZRAM Status:"
     zramctl
@@ -118,20 +116,23 @@ echo ">> available compression algorithms:"
     esac
 
 
-PKGS=( "btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "fzf" "ncdu" "dust" "helix" )
+PKGS=( "btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "fzf" "ncdu" "dust" "helix" "fish")
 
       echo ">>> Installing additional packages: ${PKGS[*]}"
       pacman_install "${PKGS[@]}"
+
+      chsh -s $(which fish)
 
       read -rp "Install LazyVim config? [y/N]: " ans
       ans=${ans:-N}
 
       if [[ $ans =~ ^[Yy]$ ]]; then
+        rm -rf ~/.config/nvim
+
         git clone https://github.com/LazyVim/starter ~/.config/nvim
       else
         echo "Warning : Neovim has been installed without lazyvim config "
       fi
-
 
 
 DEVTOOLS=("rust" "python" "git" "llvm" "clang" "lazygit" "ripgrep")
