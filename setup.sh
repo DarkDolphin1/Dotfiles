@@ -92,10 +92,13 @@ echo ">> available compression algorithms:"
     sudo bash -c "cat > /etc/systemd/zram-generator.conf <<EOF
 [zram0]
 zram-size = $ZRAM_SIZE
-compression-algorithm = $SELECTED_ALGO
-EOF"
+compression-algorithm = $SELECTED_ALGO"
 
+    sudo systemctl daemon-reload
+    sudo systemctl start systemd-zram-setup@zram0.service
+    
     echo ">>> If ZRAM doesn't show up right now , don't worry , try a reboot :)"
+
     echo ">>> ZRAM Status:"
     zramctl
 
