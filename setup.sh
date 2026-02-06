@@ -102,16 +102,19 @@ echo ">> available compression algorithms:"
     zramctl
 
 
-    read -p ">>> Build asusctl locally from source ? [Y/n]" ans
-    case "$ans" in
-        [Yy]|"" ){ 
-            echo "Building asusctal from yay";
-            
-            yay_install asusctl 
+    read -p ">>> Build asusctl locally from source ? [Y/n] " ans
 
-            }
-        [Nn] ) echo ">>> Skipping asusctl ";
-        * ) echo "Invalid choice";;
+    case "$ans" in
+        [Yy]|"")
+            echo ">>> Building asusctl from yay"
+            yay_install asusctl
+            ;;
+        [Nn])
+            echo ">>> Skipping asusctl"
+            ;;
+        *)
+            echo ">>> Invalid choice"
+            ;;
     esac
 
 
