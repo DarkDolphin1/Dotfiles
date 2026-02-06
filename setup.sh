@@ -134,7 +134,7 @@ PKGS=( "btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "f
 
 
 
-DEVTOOLS=("rust" "python" "node" "git" "llvm" "clang" "lazygit" "ripgrep")
+DEVTOOLS=("rust" "python" "git" "llvm" "clang" "lazygit" "ripgrep")
 
 echo ">>> Installling Dev tools "
 pacman_install "${DEVTOOLS[@]}"
