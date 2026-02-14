@@ -19,6 +19,23 @@ yay_install(){
     yay -S --needed --noconfirm "${@}"
 }
 
+node_install(){
+    # Download and install nvm:
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+    # in lieu of restarting the shell
+    \. "$HOME/.nvm/nvm.sh"
+
+    # Download and install Node.js:
+    nvm install 25
+
+    # Verify the Node.js version:
+    node -v # Should print "v25.6.1".
+
+    # Verify npm version:
+    npm -v # Should print "11.9.0".
+
+}
 git_clone(){
     local url=$1
     git clone "$url" 
@@ -141,8 +158,12 @@ PKGS=( "btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "f
 DEVTOOLS=("rust" "python" "git" "llvm" "clang" "lazygit" "ripgrep")
 
 echo ">>> Installling Dev tools "
+
 pacman_install "${DEVTOOLS[@]}"
+
 yay_install visual-studio-code-bin  
+
+node_install
 
 KDE=("plasma" "konsole" "dolphin" "thunar" "kitty" "sddm")
 HYPR=("hyprland" "hyprpaper" "waybar" )
