@@ -172,6 +172,9 @@ echo ">>> Installing Base KDE and hyprland "
 pacman_install "${KDE[@]}"
 pacman_install "${HYPR[@]}"
 
+echo "installing gemini-cli"
+yay_install gemini-cli
+
 sudo systemctl enable sddm
 reboot
 echo ">>> Setup complete! Please restart your shell."
