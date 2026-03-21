@@ -1,0 +1,41 @@
+/* Basic Reset */
+* {
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.8); /* Dark semi-transparent */
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Individual Modules */
+#workspaces button {
+    padding: 0 5px;
+    color: #89b4fa;
+}
+
+#workspaces button.active {
+    color: #f5c2e7;
+    border-bottom: 2px solid #f5c2e7;
+}
+
+#clock, #cpu, #memory, #network, #pulseaudio, #tray {
+    padding: 0 10px;
+    margin: 4px 2px;
+    background-color: rgba(45, 45, 70, 0.5);
+    border-radius: 8px;
+}
+
+#clock {
+    color: #fab387;
+}
+
+#pulseaudio {
+    color: #a6e3a1;
+}
