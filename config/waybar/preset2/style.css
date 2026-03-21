@@ -1,0 +1,55 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 14px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#workspaces,
+#clock,
+#pulseaudio,
+#backlight,
+#battery,
+#tray {
+    background-color: #1e1e2e; /* Catppuccin Mocha Base */
+    color: #cdd6f4;
+    padding: 0px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#workspaces {
+    background-color: #313244;
+}
+
+#workspaces button {
+    color: #89b4fa;
+    padding: 0 4px;
+}
+
+#workspaces button.active {
+    color: #f5c2e7;
+}
+
+#clock {
+    color: #cba6f7;
+    background-color: #313244;
+}
+
+/* Highlight battery when low */
+#battery.critical:not(.charging) {
+    background-color: #f38ba8;
+    color: #11111b;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to { background-color: #313244; color: #f38ba8; }
+}
