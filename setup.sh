@@ -167,11 +167,12 @@ yay_install visual-studio-code-bin
 
 node_install
 
-KDE=("plasma" "konsole" "dolphin" "thunar" "kitty" "sddm")
+KDE=("plasma" "konsole" "dolphin" "thunar" "kitty")
 HYPR=("hyprland" "hyprpaper" "waybar")
 
 echo ">>> Installing Base KDE and hyprland "
 pacman_install "${KDE[@]}"
+pacman_install "sddm"
 pacman_install "${HYPR[@]}"
 
 echo "installing gemini-cli"
