@@ -134,7 +134,7 @@ case "$ans" in
   ;;
 esac
 
-PKGS=("btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "fzf" "ncdu" "dust" "helix" "fish")
+PKGS=("btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "fzf" "ncdu" "dust" "helix" "fish" "grim" "slurp" "wl-clipboard" "satty")
 
 echo ">>> Installing additional packages: ${PKGS[*]}"
 pacman_install "${PKGS[@]}"
@@ -164,6 +164,7 @@ echo ">>> Installling Dev tools "
 pacman_install "${DEVTOOLS[@]}"
 
 yay_install visual-studio-code-bin
+yay_install grimblast-git
 
 node_install
 
