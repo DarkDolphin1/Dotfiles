@@ -144,6 +144,9 @@ pacman_install "${PKGS[@]}"
 echo ">>> Installing general utils: ${UTILS[*]}"
 pacman_install "${UTILS[@]}"
 
+sudo systemctl enable --now bluetooth
+systemctl status bluetooth
+
 # Fonts and icons
 pacman_install ttf-jetbrains-mono-nerd
 pacman_install otf-font-awesome
