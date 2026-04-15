@@ -136,8 +136,13 @@ esac
 
 PKGS=("btop" "fastfetch" "fortune-mod" "cowsay" "lolcat" "bat" "yazi" "nvim" "fzf" "ncdu" "dust" "helix" "fish" "grim" "slurp" "wl-clipboard" "satty")
 
+UTILS=("blluez" "bluez-utils" "blueman")
+
 echo ">>> Installing additional packages: ${PKGS[*]}"
 pacman_install "${PKGS[@]}"
+
+echo ">>> Installing general utils: ${UTILS[*]}"
+pacman_install "${UTILS[@]}"
 
 # Fonts and icons
 pacman_install ttf-jetbrains-mono-nerd
