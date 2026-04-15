@@ -148,8 +148,9 @@ sudo systemctl enable --now bluetooth
 systemctl status bluetooth
 
 # Fonts and icons
-pacman_install ttf-jetbrains-mono-nerd
-pacman_install otf-font-awesome
+FONTS=("ttf-jetbrains-mono-nerd" "otf-font-awesome" "noto-fonts-emoji" "noto-fonts-cjk")
+
+pacman_install "${FONTS[@]}"
 
 # Change default shell to fish
 chsh -s $(which fish)
