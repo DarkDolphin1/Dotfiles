@@ -4,6 +4,9 @@
 # Abort on error
 set -e
 
+# Store the directory where the script is located
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 echo ">>> Make sure you are running this from your Home Directory without root priv "
 cd ~
 
@@ -189,5 +192,27 @@ echo "installing gemini-cli"
 yay_install gemini-cli
 
 sudo systemctl enable sddm
-reboot
-echo ">>> Setup complete! Please restart your shell."
+
+# --- Integration of additional scripts ---
+
+echo ">>> Running Post-Installation Configuration..."
+chmod +x "$REPO_ROOT/post-install.sh"
+bash "$REPO_ROOT/post-install.sh"
+
+echo ">>> Running SDDM Theme Configuration..."
+chmod +x "$REPO_ROOT/sddm.sh"
+bash "$REPO_ROOT/sddm.sh"
+
+# --- End of Integration ---
+
+echo ">>> Setup complete!"
+
+read -rp ">>> Installation finished. Would you like to reboot now? [y/N]: " reboot_ans
+reboot_ans=${reboot_ans:-N}
+
+if [[ $reboot_ans =~ ^[Yy]$ ]]; then
+  echo ">>> Rebooting..."
+  sudo reboot
+else
+  echo ">>> Please restart your system manually to apply all changes."
+fi
